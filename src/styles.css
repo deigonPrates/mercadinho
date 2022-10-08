@@ -5,6 +5,20 @@
   margin:50px;
   gap: 50px;
 }
+
+/******************* MODAL *********************/
+.modal{
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  position: absolute;
+  background-color: rgb(176 176 176 / 86%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 /******************* FORM *********************/
 .form{
   padding: 50px;
