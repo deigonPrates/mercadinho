@@ -1,1 +1,62 @@
-<p>produtos works!</p>
+<div class="container">
+  <div class="card-table">
+      <div class="add-item">
+          <button class="btn-submit" (click)="showModal()">Cadastrar Novo Produto</button>
+      </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:10%">ID</th>
+          <th style="width:40%">Nome</th>
+          <th style="width:30%">Tipo</th>
+          <th style="width:30%">Valor</th>
+          <th style="width:20%">Ação</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="items">
+        <tr *ngFor="let item of items; let i = index">
+            <td style="width:10%">{{  item.id }}</td>
+            <td style="width:40%">{{  item.nome }}</td>
+            <td style="width:30%">{{  item.tipo_nome }}</td>
+            <td style="width:30%">{{  item.valor }}</td>
+            <td style="width:20%;">
+              <div style="display: flex; flex-direction:collumn; gap: 10px;">
+                <button class="btn-min-editar" (click)="edit(item.id)">Editar</button>
+                <button class="btn-min-remover" (click)="delete(item.id)">Remover</button>
+              </div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<div class="modal" *ngIf="modal">
+  <form class="form" [formGroup]="formGroup">
+   <ul>
+     <li>
+       <label>Nome:</label>
+       <input type="text" formControlName="nome">
+     </li>
+     <li>
+      <label>Tipo:</label>
+      <ng-select  formControlName="tipo_id">
+        <ng-option *ngFor="let tipo of selectTipos" [value]="tipo.id">{{tipo.nome}}</ng-option>
+     </ng-select>
+     </li>
+     <li>
+       <label>Valor:</label>
+       <input type="text" formControlName="valor">
+     </li>
+   </ul>
+   <div class="form-actions">
+      <button class="btn-cancel" (click)="hideModal()">Cancelar</button>
+      <button class="btn-submit" (click)="create()"  [disabled]="!formGroup.valid"   *ngIf="action === 'new' else tempEdit">Salvar</button>
+   </div>
+</form>
+</div>
+<ng-template #tempEdit>
+  <button class="btn-editar" (click)="update()">Editar</button>
+</ng-template>

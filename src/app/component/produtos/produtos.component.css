@@ -1,0 +1,144 @@
+.container{
+  margin:50px;
+  gap: 50px;
+}
+
+/******************* MODAL *********************/
+.modal{
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  background-color: rgb(176 176 176 / 86%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/******************* FORM *********************/
+.form{
+  padding: 50px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.892);
+  width: 400px;
+  height: auto;
+  border-radius: 5px;
+}
+
+label{
+  width: 100%;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+ul,li{
+  list-style: none;
+}
+
+ul{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+}
+
+input[type="text"]{
+  width: 100%;
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid #9da8af;
+  padding: 10px;
+}
+
+.form-actions{
+  display:flex;
+  gap: 30px;
+}
+
+/******************* BUTTON *********************/
+button{
+  border: none;
+  color: #FFF;
+  border-radius: 7px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-cancel, .btn-submit, .btn-editar, .btn-remover{
+  text-transform: uppercase;
+  display: block;
+  margin: 15px auto 15px auto;
+  padding: 0!important;
+  font-size: 14px;
+  font-weight: 700;
+  height: 40px;
+  background-color: #00a1fe;
+}
+
+.btn-cancel{
+  background-color: #727070;
+}
+
+.btn-min-editar,.btn-min-remover{
+  padding: 10px;
+}
+.btn-min-editar,.btn-editar{
+  background-color: rgb(209, 142, 48);
+}
+.btn-min-remover, .btn-remover{
+  background-color: rgb(215, 13, 13);
+}
+
+button:disabled{
+  background-color: #516875;
+}
+/******************* TABLE *********************/
+.card-table{
+  border: 1px solid #00a1fe;
+  width: 100%;
+  padding: 20px;
+}
+
+.add-item{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.add-item button{
+  max-width: 250px;
+  margin-right: 0;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #D4D4D4;
+  font-size: 13px;
+}
+
+table th{
+  background-color: #00a1fe;
+  color: #fff;
+  border-color: #c7c3c3;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 700;
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+}
+
+table tbody tr:hover {
+  background-color: rgba(153, 153, 153, 0.36);
+}
+
+table tbody td{
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: #0000002e;
+}
