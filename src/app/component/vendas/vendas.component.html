@@ -1,1 +1,81 @@
-<p>vendas works!</p>
+<div class="container">
+  <div class="carrinho">
+    <form class="form" [formGroup]="formGroup">
+      <ul>
+        <li>
+          <label>Produto:</label>
+          <ng-select  formControlName="produto_id">
+            <ng-option *ngFor="let item of selectProdutos" [value]="item.id">{{item.nome}}</ng-option>
+        </ng-select>
+        </li>
+        <li>
+          <label>Quantidade:</label>
+          <input type="number" formControlName="quantidade">
+        </li>
+      </ul>
+      <div class="form-actions">
+         <button class="btn-cancel" (click)="clear()">Limpar</button>
+         <button class="btn-submit" (click)="create()"  [disabled]="!formGroup.valid">Adicionar</button>
+      </div>
+      <div class="form-actions">
+        <button class="btn-submit" (click)="finishSale()"  [disabled]="items.length === 0">Concluir a compra</button>
+     </div>
+   </form>
+  </div>
+  <div class="card-table">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Descrição</th>
+          <th>Quantidade</th>
+          <th>Preço unitario</th>
+          <th>Impostos</th>
+          <th>Valor Total</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="items.length > 0 else tabelaVazia">
+        <tr *ngFor="let item of items; let i = index">
+            <td>{{  item.id }}</td>
+            <td>{{  item.descricao }}</td>
+            <td>{{  item.quantidade }}</td>
+            <td>{{  item.preco_unitario }}</td>
+            <td>{{  item.impostos }}</td>
+            <td>{{  item.valor_total }}</td>
+            <td>
+              <button class="btn-min-remover" (click)="remove(i)">Remover</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div style="width:50%;float: right;padding: 30px 0" *ngIf="items.length > 0">
+      <table>
+          <tbody>
+            <tr>
+              <td>Total de produtos</td>
+              <td><p>{{ qtdNota }}</p></td>
+            </tr>
+            <tr>
+              <td>Total de imposto:</td>
+              <td><p>{{ totalImposto }}</p></td>
+            </tr>
+            <tr>
+              <td><strong>Total pago:</strong></td>
+              <td><strong>{{ totalNota }}</strong></td>
+            </tr>
+
+          </tbody>
+      </table>
+  </div>
+  </div>
+</div>
+<ng-template #tabelaVazia>
+  <tbody>
+    <tr>
+      <td colspan="7" style="text-align:center"> NENHUM PRODUTO ADICIONADO</td>
+    </tr>
+  </tbody>
+</ng-template>

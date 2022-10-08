@@ -4,4 +4,5 @@ export interface IProdutos{
   tipo_nome?: string;
   nome: string;
   valor: string;
+  imposto: string;
 }

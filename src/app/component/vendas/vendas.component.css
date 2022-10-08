@@ -1,0 +1,7 @@
+.container{
+  display: flex;
+}
+.card-table{
+  height: 400px;
+  overflow-x: scroll;
+}
