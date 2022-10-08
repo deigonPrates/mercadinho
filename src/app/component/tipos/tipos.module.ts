@@ -3,13 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { TiposRoutingModule } from './tipos-routing.module';
 import { TiposComponent } from './tipos.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [TiposComponent],
   imports: [
     CommonModule,
-    TiposRoutingModule
+    TiposRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports:[TiposComponent]
 })
