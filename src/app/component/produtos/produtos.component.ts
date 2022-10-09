@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IProdutos } from 'src/app/models/produtos.models';
 import { NgSelectConfig } from '@ng-select/ng-select';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-produtos',
@@ -26,7 +27,8 @@ export class ProdutosComponent implements OnInit {
   constructor(
     private http : HttpClient,
     private formBuilder: FormBuilder,
-    private config: NgSelectConfig
+    private config: NgSelectConfig,
+    private toast: NgToastService
   ) {
     this.config.notFoundText = 'Não encontrado';
     this.endPoint = environment.url_api+'/produto/';
@@ -73,6 +75,7 @@ export class ProdutosComponent implements OnInit {
       this.formGroup.reset();
       this.list();
       this.hideModal();
+      this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O produto foi cadastrado', position:'tr', duration: 3000});
     });
   }
 
@@ -100,6 +103,7 @@ export class ProdutosComponent implements OnInit {
         this.hideModal();
         this.formGroup.reset();
         this.list();
+        this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi atualizado', position:'tr', duration: 3000});
       });
     }
   }
@@ -108,6 +112,7 @@ export class ProdutosComponent implements OnInit {
     if (window.confirm("Deseja remover?")) {
       this.http.delete(this.endPoint+'?id='+id).subscribe(() => {
         this.list();
+        this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi removido', position:'tr', duration: 3000});
       });
     }
   }
