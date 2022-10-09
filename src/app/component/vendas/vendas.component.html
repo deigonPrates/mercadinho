@@ -7,11 +7,19 @@
           <label>Produto:</label>
           <ng-select  formControlName="produto_id">
             <ng-option *ngFor="let item of selectProdutos" [value]="item.id">{{item.nome}}</ng-option>
-        </ng-select>
+          </ng-select>
+          <div *ngIf="formGroup.controls['produto_id'].errors?.['required']
+                      && formGroup.controls['produto_id'].touched">
+              <p class="error">Campo obrigatório</p>
+          </div>
         </li>
         <li>
           <label>Quantidade:</label>
           <input type="number" formControlName="quantidade">
+          <div *ngIf="formGroup.controls['quantidade'].errors?.['required']
+                      && formGroup.controls['quantidade'].touched">
+              <p class="error">Campo obrigatório</p>
+          </div>
         </li>
       </ul>
       <div class="form-actions">
