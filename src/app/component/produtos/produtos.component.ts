@@ -110,9 +110,14 @@ export class ProdutosComponent implements OnInit {
 
   delete(id: number){
     if (window.confirm("Deseja remover?")) {
-      this.http.delete(this.endPoint+'?id='+id).subscribe(() => {
-        this.list();
-        this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi removido', position:'tr', duration: 3000});
+      this.http.delete(this.endPoint+'?id='+id).subscribe({
+        next: ()=> {
+          this.list();
+          this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi removido', position:'tr', duration: 3000});
+        },
+        error: () => {
+          this.toast.error({detail: 'Falha ao remover!', summary:'O item já foi associado', position:'tr', duration: 3000});
+        }
       });
     }
   }
