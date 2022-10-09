@@ -40,16 +40,31 @@
      <li>
        <label>Nome:</label>
        <input type="text" formControlName="nome">
+       <div *ngIf="formGroup.controls['nome'].errors?.['required']
+                    && formGroup.controls['nome'].touched">
+        <p class="error">Campo obrigatório</p>
+      </div>
+      <div *ngIf="formGroup.controls['nome'].errors?.['minlength']">
+         <p class="error">Preencha com no mínimo 6 caracteres</p>
+     </div>
      </li>
      <li>
       <label>Tipo:</label>
       <ng-select  formControlName="tipo_id">
         <ng-option *ngFor="let tipo of selectTipos" [value]="tipo.id">{{tipo.nome}}</ng-option>
      </ng-select>
+     <div *ngIf="formGroup.controls['tipo_id'].errors?.['required']
+                    && formGroup.controls['tipo_id'].touched">
+        <p class="error">Campo obrigatório</p>
+      </div>
      </li>
      <li>
        <label>Valor:</label>
        <input type="text" formControlName="valor">
+       <div *ngIf="formGroup.controls['valor'].errors?.['required']
+                    && formGroup.controls['valor'].touched">
+        <p class="error">Campo obrigatório</p>
+      </div>
      </li>
    </ul>
    <div class="form-actions">
