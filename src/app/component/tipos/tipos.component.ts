@@ -63,6 +63,7 @@ export class TiposComponent  implements OnInit{
     this.http.post(this.endPoint,formData).subscribe(() => {
       this.formGroup.reset();
       this.list();
+      this.hideModal();
       this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi cadastrado', position:'tr', duration: 3000});
     });
   }
