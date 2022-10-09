@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'tipos',
     loadChildren: () => import('./component/tipos/tipos.module').then((m) => m.TiposModule),
+  },
+  {
+    path: 'historico',
+    loadChildren: () => import('./component/historico/historico.module').then((m) => m.HistoricoModule),
   }
 ];
 @NgModule({

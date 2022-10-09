@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="card-table">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data</th>
+          <th>Valor pago</th>
+          <th>Imposto</th>
+          <th>Qtd Itens</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="itens.length > 0 else tabelaVazia">
+        <tr *ngFor="let item of itens; let i = index">
+            <td>{{  item.id }}</td>
+            <td>{{  item.data }}</td>
+            <td>{{  item.valor }}</td>
+            <td>{{  item.imposto }}</td>
+            <td>{{  item.quantidade }}</td>
+            <td>
+              <button class="btn-min-editar" (click)="showModal(item.id)">Mais detalhes</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal" *ngIf="modal">
+  <div class="card-table table-modal">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Descrição</th>
+          <th>Preco unitário</th>
+          <th>Imposto</th>
+          <th>Qtd Itens</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="itensPedido.length > 0 else tabelaVazia">
+        <tr *ngFor="let item of itensPedido; let i = index">
+            <td>{{  item.id }}</td>
+            <td>{{  item.descricao }}</td>
+            <td>{{  item.preco_unitario }}</td>
+            <td>{{  item.impostos }}</td>
+            <td>{{  item.quantidade }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="action">
+        <button class="btn-cancel" (click)="hideModal()">Fechar</button>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #tabelaVazia>
+  <tbody>
+    <tr>
+      <td colspan="6" style="text-align:center"> NENHUM PRODUTO ADICIONADO</td>
+    </tr>
+  </tbody>
+</ng-template>
