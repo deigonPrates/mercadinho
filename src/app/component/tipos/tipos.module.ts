@@ -5,6 +5,7 @@ import { TiposRoutingModule } from './tipos-routing.module';
 import { TiposComponent } from './tipos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgToastModule
   ],
   exports:[TiposComponent]
 })

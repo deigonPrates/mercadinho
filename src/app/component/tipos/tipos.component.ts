@@ -1,3 +1,4 @@
+import { NgToastService } from 'ng-angular-popup';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,7 +22,8 @@ export class TiposComponent  implements OnInit{
 
   constructor(
     private http : HttpClient,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toast: NgToastService
   ) {
     this.endPoint = environment.url_api+'/tipo/';
 
@@ -61,6 +63,7 @@ export class TiposComponent  implements OnInit{
     this.http.post(this.endPoint,formData).subscribe(() => {
       this.formGroup.reset();
       this.list();
+      this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi cadastrado', position:'tr', duration: 3000});
     });
   }
 
@@ -85,6 +88,7 @@ export class TiposComponent  implements OnInit{
         this.hideModal();
         this.formGroup.reset();
         this.list();
+        this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi atualizado', position:'tr', duration: 3000});
       });
     }
   }
@@ -93,6 +97,7 @@ export class TiposComponent  implements OnInit{
     if (window.confirm("Deseja remover?")) {
       this.http.delete(this.endPoint+'?id='+id).subscribe((e) => {
         this.list();
+        this.toast.success({detail: 'Operação realizada com sucesso!', summary:'O item foi removido', position:'tr', duration: 3000});
       });
     }
   }
