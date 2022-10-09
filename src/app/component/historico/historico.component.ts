@@ -14,7 +14,7 @@ export class HistoricoComponent implements OnInit {
   itens: Array<IHistorico> = [];
   itensPedido: Array<IPedido> = [];
 
-  public modal: boolean = true;
+  public modal: boolean = false;
 
   private endPoint: string;
 
