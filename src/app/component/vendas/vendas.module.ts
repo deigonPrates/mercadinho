@@ -6,6 +6,7 @@ import { VendasComponent } from './vendas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule,
+    NgToastModule
   ],
   exports: [VendasComponent]
 })

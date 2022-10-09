@@ -5,6 +5,7 @@ import { NgSelectConfig } from '@ng-select/ng-select';
 import { IPedido } from 'src/app/models/pedido.models';
 import { IProdutos } from 'src/app/models/produtos.models';
 import { environment } from 'src/environments/environment';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-vendas',
@@ -26,7 +27,8 @@ export class VendasComponent implements OnInit {
   constructor(
     private http : HttpClient,
     private formBuilder: FormBuilder,
-    private config: NgSelectConfig
+    private config: NgSelectConfig,
+    private toast: NgToastService
   ){
     this.config.notFoundText = 'Não encontrado';
     this.endPointProduct = environment.url_api+'/produto/';
@@ -76,9 +78,10 @@ export class VendasComponent implements OnInit {
         itens:      this.items
       }
     ).subscribe((result) => {
+      this.toast.success({detail: 'Operação realizada com sucesso!', summary:'A compra foi cadastrada', position:'tr', duration: 3000});
       this.clear();
       this.items = [];
-    });
+     });
   }
 
   remove(id: any){
