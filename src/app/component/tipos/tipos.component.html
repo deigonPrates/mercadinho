@@ -1,7 +1,5 @@
 <div class="container">
-
-<lib-ng-toast></lib-ng-toast>
-
+  <lib-ng-toast></lib-ng-toast>
   <div class="card-table">
       <div class="add-item">
           <button class="btn-submit" (click)="showModal()">Cadastrar Novo Tipo</button>
@@ -39,11 +37,22 @@
    <ul>
      <li>
        <label>Nome:</label>
-       <input type="text" formControlName="nome">
+       <input type="text" formControlName="nome" >
+       <div *ngIf="formGroup.controls['nome'].errors?.['required']
+                    && formGroup.controls['nome'].touched">
+        <p class="error">Campo obrigatório</p>
+      </div>
+       <div *ngIf="formGroup.controls['nome'].errors?.['minlength']">
+          <p class="error">Preencha com no mínimo 6 caracteres</p>
+      </div>
      </li>
      <li>
        <label>Imposto:</label>
        <input type="text" formControlName="imposto">
+       <div *ngIf="formGroup.controls['imposto'].errors?.['required']
+                    && formGroup.controls['imposto'].touched">
+        <p class="error">Campo obrigatório</p>
+      </div>
      </li>
    </ul>
    <div class="form-actions">

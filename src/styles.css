@@ -5,7 +5,10 @@
   margin:50px;
   gap: 50px;
 }
-
+p.error{
+  font-size: 0.6rem;
+  color: brown;
+}
 /******************* MODAL *********************/
 .modal{
   width: 100%;
