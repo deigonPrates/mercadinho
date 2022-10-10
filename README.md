@@ -1,27 +1,55 @@
-# Mercadinho
+## Sobre
+A aplicação de pdv simples feito em Angular.  <br>veja uma demonstração (https://mercadinho-mts.vercel.app)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+## Requisitos⚠️
 
-## Development server
+- Angular CLI (https://github.com/angular/angular-cli)
+- None js 14.0 ou superior (https://nodejs.org/en/download/)
+- API do backend rodando na porta 8080 (https://github.com/deigonPrates/api-mercadinho);
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instalação 👨‍💻
+1) Intalando as dependências do packager<br>
+   ```
+   npm install 
+   ```
+2) Iniciando o projeto<br>
+   ```
+   ng serve
+   ```
+   
+2) Assim que finalizar o build acesse através do seu navegador a url<br>
+   ```
+   http://localhost:4200/
+   ```
+## Screenshots 🚧
 
-## Code scaffolding
+HOME
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/home.png?raw=true)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+VENDAS
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/vendas.png?raw=true)
 
-## Build
+PRODUTOS - LISTAGEM
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/produtos-listagem.png?raw=true)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+PRODUTOS - NOVO
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/produtos-novo.png?raw=true)
 
-## Running unit tests
+PRODUTOS - EDITAR
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/produtos-editar.png?raw=true)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+TIPO - LISTAGEM
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/tipo-listagem.png?raw=true)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+TIPO - NOVO
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/tipo-novo.png?raw=true)
 
-## Further help
+TIPO - EDITAR
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/tipo-editar.png?raw=true)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+HISTORICO VENDAS - LISTAGEM
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/historico-vendas.png?raw=true)
+
+HISTORICO VENDAS - VER MAIS
+![IMG](https://github.com/deigonPrates/mercadinho/blob/main/.prints/historico-vendas-detalhes.png?raw=true)
