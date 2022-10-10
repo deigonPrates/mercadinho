@@ -98,6 +98,7 @@ export class ProdutosComponent implements OnInit {
   update(){
     if(this.tempID !== 0){
       const {nome, tipo_id, valor} = this.formGroup.value;
+      console.log(valor);
       this.http.put(this.endPoint+`\?id=${this.tempID}&nome=${nome}&tipo_id=${tipo_id}&valor=${valor}`,{})
       .subscribe(() => {
         this.hideModal();

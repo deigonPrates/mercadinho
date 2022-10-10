@@ -29,7 +29,7 @@ export class TiposComponent  implements OnInit{
 
     this.formGroup = this.formBuilder.group({
       nome: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-      imposto: ['', Validators.compose([Validators.required])],
+      imposto: ['', Validators.compose([Validators.required, Validators.pattern("^[0-9]*$")])],
     });
   }
 

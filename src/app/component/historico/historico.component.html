@@ -14,9 +14,9 @@
       <tbody *ngIf="itens.length > 0 else tabelaVazia">
         <tr *ngFor="let item of itens; let i = index">
             <td>{{  item.id }}</td>
-            <td>{{  item.data }}</td>
-            <td>{{  item.valor }}</td>
-            <td>{{  item.imposto }}</td>
+            <td>{{  item.data | date: 'dd/MM/yyyy'}}</td>
+            <td>{{  item.valor | currency:'BRL' }}</td>
+            <td>{{  item.imposto | currency:'BRL' }}</td>
             <td>{{  item.quantidade }}</td>
             <td>
               <button class="btn-min-editar" (click)="showModal(item.id)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Mais detalhes</button>
@@ -43,8 +43,8 @@
         <tr *ngFor="let item of itensPedido; let i = index">
             <td>{{  item.id }}</td>
             <td>{{  item.descricao }}</td>
-            <td>{{  item.preco_unitario }}</td>
-            <td>{{  item.impostos }}</td>
+            <td>{{  item.preco_unitario | currency:'BRL' }}</td>
+            <td>{{  item.impostos | currency:'BRL' }}</td>
             <td>{{  item.quantidade }}</td>
         </tr>
       </tbody>

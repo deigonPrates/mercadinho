@@ -19,7 +19,7 @@
             <td style="width:10%">{{  item.id }}</td>
             <td style="width:40%">{{  item.nome }}</td>
             <td style="width:30%">{{  item.tipo_nome }}</td>
-            <td style="width:30%">{{  item.valor }}</td>
+            <td style="width:30%">{{  item.valor | currency:'BRL' }}</td>
             <td style="width:20%;">
               <div style="display: flex; flex-direction:collumn; gap: 10px;">
                 <button class="btn-min-editar" (click)="edit(item.id)"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
@@ -40,8 +40,7 @@
      <li>
        <label>Nome:</label>
        <input type="text" formControlName="nome">
-       <div *ngIf="formGroup.controls['nome'].errors?.['required']
-                    && formGroup.controls['nome'].touched">
+       <div *ngIf="formGroup.controls['nome'].errors?.['required'] && formGroup.controls['nome'].touched">
         <p class="error">Campo obrigatório</p>
       </div>
       <div *ngIf="formGroup.controls['nome'].errors?.['minlength']">
@@ -53,16 +52,14 @@
       <ng-select  formControlName="tipo_id">
         <ng-option *ngFor="let tipo of selectTipos" [value]="tipo.id">{{tipo.nome}}</ng-option>
      </ng-select>
-     <div *ngIf="formGroup.controls['tipo_id'].errors?.['required']
-                    && formGroup.controls['tipo_id'].touched">
+     <div *ngIf="formGroup.controls['tipo_id'].errors?.['required'] && formGroup.controls['tipo_id'].touched">
         <p class="error">Campo obrigatório</p>
       </div>
      </li>
      <li>
        <label>Valor:</label>
-       <input type="text" formControlName="valor">
-       <div *ngIf="formGroup.controls['valor'].errors?.['required']
-                    && formGroup.controls['valor'].touched">
+       <input type="text" formControlName="valor" currencyMask   [options]="{ prefix: 'R$', thousands: '.', decimal: ',' }" />
+       <div *ngIf="formGroup.controls['valor'].errors?.['required']  && formGroup.controls['valor'].touched">
         <p class="error">Campo obrigatório</p>
       </div>
      </li>

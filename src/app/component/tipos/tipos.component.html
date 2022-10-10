@@ -9,7 +9,7 @@
         <tr>
           <th style="width:10%">ID</th>
           <th style="width:40%">Nome</th>
-          <th style="width:30%">Imposto</th>
+          <th style="width:30%">Imposto (%)</th>
           <th style="width:20%">Ação</th>
         </tr>
       </thead>
@@ -47,10 +47,9 @@
       </div>
      </li>
      <li>
-       <label>Imposto:</label>
-       <input type="text" formControlName="imposto">
-       <div *ngIf="formGroup.controls['imposto'].errors?.['required']
-                    && formGroup.controls['imposto'].touched">
+       <label>Imposto(%):</label>
+       <input type="number" formControlName="imposto">
+       <div *ngIf="formGroup.controls['imposto'].errors?.['required'] && formGroup.controls['imposto'].touched">
         <p class="error">Campo obrigatório</p>
       </div>
      </li>

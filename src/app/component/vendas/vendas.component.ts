@@ -17,9 +17,9 @@ export class VendasComponent implements OnInit {
   public selectProdutos: Array<IProdutos> = [];
   public items: Array<IPedido> = [];
   public formGroup: FormGroup;
-  public totalNota = '0';
-  public totalImposto = '0';
-  public qtdNota = 0;
+  public totalNota: number = 0.0;
+  public totalImposto: number = 0.0;
+  public qtdNota: number = 0;
 
   private endPoint: string;
   private endPointProduct: string;
@@ -50,19 +50,19 @@ export class VendasComponent implements OnInit {
     const item = this.formGroup.value;
     this.http.get(this.endPointProduct+'?id='+item.produto_id).subscribe((data) => {
        const produto     = data as IProdutos;
-       const valor       = this.converterMoedaEmFloat(produto.valor);
-       const total       = valor * parseInt(item.quantidade);
+       const total       = parseFloat(produto.valor) * parseInt(item.quantidade);
        const impostos    = (total / 100) * parseFloat(produto.imposto);
-       this.totalNota    = this.parseMoney(this.converterMoedaEmFloat(this.totalNota)+total)
-       this.totalImposto = this.parseMoney(this.converterMoedaEmFloat(this.totalImposto)+impostos)
-       this.qtdNota +=  item.quantidade;
+       this.totalNota    += total;
+       this.totalImposto += impostos;
+       this.qtdNota      +=  item.quantidade;
+
        this.items.push({
           id: produto.id,
           descricao: produto.nome,
           quantidade: item.quantidade,
           preco_unitario: produto.valor,
-          impostos:    this.parseMoney(impostos),
-          valor_total: this.parseMoney(total)
+          impostos: impostos,
+          valor_total: total
        });
 
     });
@@ -72,10 +72,10 @@ export class VendasComponent implements OnInit {
   finishSale(){
     this.http.post(this.endPoint,
       {
-        imposto:    this.totalImposto,
-        valor:      this.totalNota,
+        imposto: this.totalImposto,
+        valor: this.totalNota,
         quantidade: this.qtdNota,
-        itens:      this.items
+        itens: this.items
       }
     ).subscribe((result) => {
       this.toast.success({detail: 'Operação realizada com sucesso!', summary:'A compra foi cadastrada', position:'tr', duration: 3000});
@@ -94,19 +94,4 @@ export class VendasComponent implements OnInit {
     this.formGroup.reset();
   }
 
-
-  private parseMoney(valor: number): string{
-      let money = valor.toFixed(2);
-      money = money.replace('.', ',');
-
-      return 'R$ '+money;
-  }
-
-  private converterMoedaEmFloat(moeda: string): number{
-      moeda = moeda.replace('R$', '');
-      moeda = moeda.replace('.', '');
-      moeda = moeda.replace(',', '.');
-
-      return parseFloat(moeda);
-  }
 }

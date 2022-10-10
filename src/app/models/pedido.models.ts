@@ -3,6 +3,6 @@ export interface IPedido{
   descricao: string;
   quantidade: number;
   preco_unitario: string;
-  impostos: string;
-  valor_total: string;
+  impostos: number;
+  valor_total: number;
 }

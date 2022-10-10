@@ -1,12 +1,13 @@
 import { HistoricoComponent } from './historico.component';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
 
 import { HistoricoRoutingModule } from './historico-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-
+import ptBr from '@angular/common/locales/pt';
+registerLocaleData(ptBr)
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     NgSelectModule,
   ],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt' }],
   exports: [HistoricoComponent]
 })
 export class HistoricoModule { }
