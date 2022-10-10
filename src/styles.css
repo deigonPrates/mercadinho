@@ -70,7 +70,12 @@ button{
   cursor: pointer;
 }
 
-.btn-cancel, .btn-submit, .btn-editar, .btn-remover{
+.btn-cancel,
+.btn-submit,
+.btn-editar,
+.btn-clear,
+.btn-remover,
+.btn-success{
   text-transform: uppercase;
   display: block;
   margin: 15px auto 15px auto;
@@ -80,23 +85,45 @@ button{
   height: 40px;
   background-color: #00a1fe;
 }
-
+.btn-success{
+  background-color: #2a720b;
+}
 .btn-cancel{
   background-color: #727070;
 }
 
-.btn-min-editar,.btn-min-remover{
-  padding: 10px;
-}
-.btn-min-editar,.btn-editar{
-  background-color: rgb(209, 142, 48);
-}
-.btn-min-remover, .btn-remover{
+.btn-remover{
   background-color: rgb(215, 13, 13);
+  font-weight: bold;
+}
+
+.btn-editar{
+  background-color: rgb(209, 142, 48);
+  font-weight: bold;
+}
+
+.btn-clear,.btn-min-remover{
+  background-color: #FFF;
+  color: rgb(173, 17, 17);
+  border: 1px solid;
+}
+
+.btn-min-editar,.btn-min-remover{
+  padding: 5px;
+  display: flex;
+  gap:4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-min-editar{
+  background-color: #FFF;
+  color: #2a720b;
+  border: 1px solid;
 }
 
 button:disabled{
-  background-color: #516875;
+  background-color: #8a8c8d;
 }
 
 /******************* TABLE *********************/

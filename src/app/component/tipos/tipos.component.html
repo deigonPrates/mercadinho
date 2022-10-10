@@ -2,7 +2,7 @@
   <lib-ng-toast></lib-ng-toast>
   <div class="card-table">
       <div class="add-item">
-          <button class="btn-submit" (click)="showModal()">Cadastrar Novo Tipo</button>
+          <button class="btn-success" (click)="showModal()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo Tipo</button>
       </div>
     <table>
       <thead>
@@ -18,10 +18,10 @@
             <td style="width:10%">{{  item.id }}</td>
             <td style="width:40%">{{  item.nome }}</td>
             <td style="width:30%">{{  item.imposto }}</td>
-            <td style="width:20%;">
+            <td style="width:10%;">
               <div style="display: flex; flex-direction:collumn; gap: 10px;">
-                <button class="btn-min-editar" (click)="edit(item.id)">Editar</button>
-                <button class="btn-min-remover" (click)="delete(item.id)">Remover</button>
+                <button class="btn-min-editar" (click)="edit(item.id)"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
+                <button class="btn-min-remover" (click)="delete(item.id)"><i class="fa fa-times" aria-hidden="true"></i> Remover</button>
               </div>
             </td>
         </tr>
@@ -56,11 +56,11 @@
      </li>
    </ul>
    <div class="form-actions">
-      <button class="btn-cancel" (click)="hideModal()">Cancelar</button>
-      <button class="btn-submit" (click)="create()"  [disabled]="!formGroup.valid"   *ngIf="action === 'new' else tempEdit">Salvar</button>
+      <button class="btn-clear" (click)="hideModal()"><i class="fa fa-times" aria-hidden="true"></i> Cancelar</button>
+      <button class="btn-success" (click)="create()"  [disabled]="!formGroup.valid"   *ngIf="action === 'new' else tempEdit"><i class="fa fa-check" aria-hidden="true"></i> Salvar</button>
    </div>
 </form>
 </div>
 <ng-template #tempEdit>
-  <button class="btn-editar" (click)="update()">Editar</button>
+  <button class="btn-success" (click)="update()"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</button>
 </ng-template>

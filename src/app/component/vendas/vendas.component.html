@@ -23,11 +23,11 @@
         </li>
       </ul>
       <div class="form-actions">
-         <button class="btn-cancel" (click)="clear()">Limpar</button>
-         <button class="btn-submit" (click)="create()"  [disabled]="!formGroup.valid">Adicionar</button>
+         <button class="btn-clear" (click)="clear()"><i class="fa fa-trash" aria-hidden="true"></i> Limpar</button>
+         <button class="btn-submit" (click)="create()"  [disabled]="!formGroup.valid"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
       </div>
       <div class="form-actions">
-        <button class="btn-submit" (click)="finishSale()"  [disabled]="items.length === 0">Concluir a compra</button>
+        <button class="btn-success" (click)="finishSale()"  [disabled]="items.length === 0"><i class="fa fa-check" aria-hidden="true"></i> Concluir compra</button>
      </div>
    </form>
   </div>
@@ -53,14 +53,14 @@
             <td>{{  item.impostos }}</td>
             <td>{{  item.valor_total }}</td>
             <td>
-              <button class="btn-min-remover" (click)="remove(i)">Remover</button>
+              <button class="btn-min-remover" (click)="remove(i)"><i class="fa fa-times" aria-hidden="true"></i> Remover</button>
             </td>
         </tr>
       </tbody>
     </table>
 
 
-    <div style="width:50%;float: right;padding: 30px 0" *ngIf="items.length > 0">
+    <div class="total-nota" *ngIf="items.length > 0">
       <table>
           <tbody>
             <tr>

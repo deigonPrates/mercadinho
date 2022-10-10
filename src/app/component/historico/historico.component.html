@@ -19,7 +19,7 @@
             <td>{{  item.imposto }}</td>
             <td>{{  item.quantidade }}</td>
             <td>
-              <button class="btn-min-editar" (click)="showModal(item.id)">Mais detalhes</button>
+              <button class="btn-min-editar" (click)="showModal(item.id)"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Mais detalhes</button>
             </td>
         </tr>
       </tbody>
@@ -50,7 +50,7 @@
       </tbody>
     </table>
     <div class="action">
-        <button class="btn-cancel" (click)="hideModal()">Fechar</button>
+        <button class="btn-remover" (click)="hideModal()"><i class="fa fa-times" aria-hidden="true"></i> Fechar</button>
     </div>
   </div>
 </div>
