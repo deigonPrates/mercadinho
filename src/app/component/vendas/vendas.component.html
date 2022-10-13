@@ -15,10 +15,14 @@
         </li>
         <li>
           <label>Quantidade:</label>
-          <input type="number" formControlName="quantidade">
+          <input type="number" formControlName="quantidade" min="1">
           <div *ngIf="formGroup.controls['quantidade'].errors?.['required']
                       && formGroup.controls['quantidade'].touched">
               <p class="error">Campo obrigatório</p>
+          </div>
+          <div *ngIf="formGroup.controls['quantidade'].errors?.['min']
+                      && formGroup.controls['quantidade'].touched">
+              <p class="error">Campo não pode ter números negativos</p>
           </div>
         </li>
       </ul>

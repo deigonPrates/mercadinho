@@ -36,7 +36,7 @@ export class VendasComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       produto_id: ['', Validators.compose([Validators.required])],
-      quantidade: ['', Validators.compose([Validators.required])],
+      quantidade: ['', Validators.compose([Validators.required,  Validators.min(1)])],
     });
   }
 
